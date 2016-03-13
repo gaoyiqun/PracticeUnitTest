@@ -2,7 +2,7 @@
 
 namespace CalculatePostCost
 {
-    public class Hsinchu
+    public class Hsinchu : ILogistics
     {
         private double _fee;
         private readonly string _companyName = "Hsinchu";

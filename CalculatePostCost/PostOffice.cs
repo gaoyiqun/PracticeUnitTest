@@ -2,7 +2,7 @@
 
 namespace CalculatePostCost
 {
-    public class PostOffice
+    public class PostOffice : ILogistics
     {
         private double _fee;
         private readonly string _companyName = "PostOffice";

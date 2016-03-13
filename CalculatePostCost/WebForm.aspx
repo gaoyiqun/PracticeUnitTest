@@ -4,95 +4,95 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div>
         <fieldset>
-            <legend>商品資訊</legend>
+            <legend>ItemInformation</legend>
             <table style="width: 100%;">
                 <tr>
                     <td>
-                        商品名稱
+                        ItemName
                     </td>
                     <td>
                         <asp:TextBox ID="txtProductName" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="請輸入商品名稱"
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter"
                             ControlToValidate="txtProductName"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        重量
+                        Weight
                     </td>
                     <td>
                         <asp:TextBox ID="txtProductWeight" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="請輸入商品重量"
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please Enter"
                             ControlToValidate="txtProductWeight"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        長
+                        Length
                     </td>
                     <td>
                         <asp:TextBox ID="txtProductLength" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="請輸入商品長度"
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Please Enter"
                             ControlToValidate="txtProductLength"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        寬
+                        Width
                     </td>
                     <td>
                         <asp:TextBox ID="txtProductWidth" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="請輸入商品寬度"
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please Enter"
                             ControlToValidate="txtProductWidth"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        高
+                        Height
                     </td>
                     <td>
                         <asp:TextBox ID="txtProductHeight" runat="server"></asp:TextBox>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="請輸入商品高度"
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please Enter"
                             ControlToValidate="txtProductHeight"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        是否需低溫冷藏
+                        Does it need cool storage?
                     </td>
                     <td>
                         <asp:RadioButtonList ID="rdoNeedCool" runat="server" RepeatDirection="Horizontal">
-                            <asp:ListItem Value="1">是</asp:ListItem>
-                            <asp:ListItem Value="0">否</asp:ListItem>
+                            <asp:ListItem Value="1">Yes</asp:ListItem>
+                            <asp:ListItem Value="0">No</asp:ListItem>
                         </asp:RadioButtonList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="請輸入是否需低溫冷藏" ControlToValidate="rdoNeedCool"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        物流商
+                        Logistic Carriers
                     </td>
                     <td>
                         <asp:DropDownList ID="drpCompany" runat="server">
-                            <asp:ListItem>請選擇</asp:ListItem>
-                            <asp:ListItem Value="1">黑貓</asp:ListItem>
-                            <asp:ListItem Value="2">新竹貨運</asp:ListItem>
-                            <asp:ListItem Value="3">郵局</asp:ListItem>
+                            <asp:ListItem>Please choose</asp:ListItem>
+                            <asp:ListItem Value="1">BlackCat</asp:ListItem>
+                            <asp:ListItem Value="2">Hsinchu</asp:ListItem>
+                            <asp:ListItem Value="3">PostOffice</asp:ListItem>
                         </asp:DropDownList>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ControlToValidate="drpCompany"
-                            InitialValue="請選擇" runat="server" ErrorMessage="請選擇物流商"></asp:RequiredFieldValidator>
+                            InitialValue="Please choose" runat="server" ErrorMessage="Please choose Carriers"></asp:RequiredFieldValidator>
                     </td>
                 </tr>
             </table>
-            <asp:Button ID="btnCalculate" runat="server" Text="計算運費" 
+            <asp:Button ID="btnCalculate" runat="server" Text="CalculateCost" 
                 onclick="btnCalculate_Click" />
         </fieldset>
     </div>
     <div>
         <fieldset>
-            <legend>結果</legend>物流商：<asp:Label ID="lblCompany" runat="server"></asp:Label>
+            <legend>Result</legend>LogisticCarrier<asp:Label ID="lblCompany" runat="server"></asp:Label>
             <br />
-            運費：<asp:Label ID="lblCharge" runat="server"></asp:Label>
+            Cost<asp:Label ID="lblCharge" runat="server"></asp:Label>
         </fieldset>
     </div>
 </asp:Content>

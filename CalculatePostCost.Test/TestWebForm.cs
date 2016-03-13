@@ -150,5 +150,57 @@ namespace CalculatePostCost.Test
             Assert.AreEqual(expectedFee, actualFee);
         }
 
+        [TestMethod()]
+        public void GetILogisticsTest_GetBlackCat()
+        {
+            //arrange
+            string p = "1";
+            Product product = new Product();
+            ILogistics expected = new BlackCat();
+
+            ILogistics actual;
+
+            //act
+            actual = FactoryRepository.GetILogistics(p, product);
+
+            //assert
+            Assert.AreEqual(expected.GetType(), actual.GetType());
+        }
+
+        [TestMethod()]
+        public void GetILogisticsTest_GetHsinchu()
+        {
+            //arrange
+            string p = "2";
+            Product product = new Product();
+            ILogistics expected = new Hsinchu();
+
+            ILogistics actual;
+
+            //act
+            actual = FactoryRepository.GetILogistics(p, product);
+
+            //assert
+            Assert.AreEqual(expected.GetType(), actual.GetType());
+        }
+
+        [TestMethod()]
+        public void GetILogisticsTest_GetPostOffice()
+        {
+            //arrange
+            string p = "3";
+            Product product = new Product();
+            ILogistics expected = new PostOffice();
+
+            ILogistics actual;
+
+            //act
+            actual = FactoryRepository.GetILogistics(p, product);
+
+            //Assert
+            Assert.AreEqual(expected.GetType(), actual.GetType());
+        }
+
+        
     }
 }

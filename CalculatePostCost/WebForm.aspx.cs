@@ -24,37 +24,51 @@ namespace CalculatePostCost
                 var companyName = "";
                 double fee = 0;
 
+                ILogistics logistics = FactoryRepository.GetILogistics(this.drpCompany.SelectedValue, product);
+                
+                /**
+
                 if (this.drpCompany.SelectedValue == "1")
                 {
 
-                    BlackCat blackCat = new BlackCat() { ShipProduct = product };
-                    blackCat.Calculate();
-                    companyName = blackCat.GetsCompanyName();
-                    fee = blackCat.GetsFee();
+                    ILogistics logistics = new BlackCat() { ShipProduct = product };
+                    logistics.Calculate();
+                    companyName = logistics.GetsCompanyName();
+                    fee = logistics.GetsFee();
                 }
                 else if (this.drpCompany.SelectedValue == "2")
                 {
-                    Hsinchu hsinchu = new Hsinchu() { ShipProduct = product };
-                    hsinchu.Calculate();
-                    companyName = hsinchu.GetsCompanyName();
-                    fee = hsinchu.GetsFee();
+                    ILogistics logistics = new Hsinchu() { ShipProduct = product };
+                    logistics.Calculate();
+                    companyName = logistics.GetsCompanyName();
+                    fee = logistics.GetsFee();
                 }
                 else if (this.drpCompany.SelectedValue == "3")
                 {
-                    PostOffice postOffice = new PostOffice() { ShipProduct = product };
-                    postOffice.Calculate();
-                    companyName = postOffice.GetsCompanyName();
-                    fee = postOffice.GetsFee();
+                    ILogistics logistics = new PostOffice() { ShipProduct = product };
+                    logistics.Calculate();
+                    companyName = logistics.GetsCompanyName();
+                    fee = logistics.GetsFee();
+                }
+
+            **/
+
+                if(logistics != null)
+                {
+                    logistics.Calculate();
+                    companyName = logistics.GetsCompanyName();
+                    fee = logistics.GetsFee();
+
+                    this.SetResult(companyName, fee);
                 }
                 else
                 {
                     var js = "alert('發生不預期錯誤，請洽系統管理者');location.href='http://tw.yahoo.com/';";
                     this.ClientScript.RegisterStartupScript(this.GetType(), "back", js, true);
-                }
-
-                this.SetResult(companyName, fee);
+                }            
             }
         }
+
 
         private Product GetProduct()
         {
@@ -73,6 +87,7 @@ namespace CalculatePostCost
 
             return result;
         }
+
         private void SetResult(string companyName, double fee)
         {
             this.lblCompany.Text = companyName;

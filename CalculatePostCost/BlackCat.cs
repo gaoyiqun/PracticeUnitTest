@@ -2,7 +2,7 @@
 
 namespace CalculatePostCost
 {
-    public class BlackCat
+    public class BlackCat:ILogistics
     {
         private double _fee;
         private readonly string _companyName = "BlackCat";
